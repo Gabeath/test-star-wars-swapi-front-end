@@ -4,7 +4,7 @@ import Head from 'next/head'
 import DarthVaderIcon from '../assets/darth-vader.svg'
 import { Container } from '../styles/pages/Home'
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <Container>
       <Head>
