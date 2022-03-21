@@ -25,4 +25,16 @@ export default createGlobalStyle`
     padding: 0;
     border-radius: 4px;
   }
+
+  input {
+    background: ${props =>
+      props.theme.colors.input.background} none repeat scroll 0 0;
+    border: 1px solid ${props => props.theme.colors.input.border};
+    border-radius: 4px;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 `

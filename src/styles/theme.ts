@@ -7,6 +7,10 @@ const theme = {
       background: '#dbb052',
       text: '#000000',
       borderColor: '#cb982a'
+    },
+    input: {
+      background: '#f7f7f7',
+      border: '#d4d4d4'
     }
   }
 }
