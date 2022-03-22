@@ -4,5 +4,6 @@ export const ErrorMessages = {
     'Credenciais inválidas, revise seus dados e tente novamente',
   invalid_params:
     'Parametros inválidos, revise seus dados antes de enviar novamente',
-  phone_already_registered: 'Telefone já cadastrado'
+  phone_already_registered: 'Telefone já cadastrado',
+  unauthorized: 'Token expirou, logue novamente para continuar'
 }
