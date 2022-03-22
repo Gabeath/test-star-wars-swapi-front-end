@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginContainer = styled.body`
+export const FormContainer = styled.body`
   background-image: url('https://hdwallsource.com/img/2014/2/apple-galaxy-wallpaper-23337-23988-hd-wallpapers.jpg');
   background-repeat: no-repeat;
   background-position: center;

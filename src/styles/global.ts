@@ -24,6 +24,7 @@ export default createGlobalStyle`
     line-height: 50px;
     padding: 0;
     border-radius: 4px;
+    margin-top: 10px;
   }
 
   input {

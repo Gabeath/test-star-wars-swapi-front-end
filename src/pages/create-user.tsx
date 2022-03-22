@@ -1,17 +1,14 @@
-import { HiLockClosed } from 'react-icons/hi'
-import React, { useContext } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import Router from 'next/router'
 
-import { AuthContext } from '../contexts/AuthContext'
 import { FormContainer } from '../styles/form'
+import { createUser } from '../services/user'
 
-const Login = () => {
+const CreateUser = () => {
   const { register, handleSubmit } = useForm()
-  const { signIn } = useContext(AuthContext)
 
-  async function handleSignIn(data) {
-    await signIn(data)
+  async function handleCreateUser(data) {
+    await createUser(data)
   }
 
   return (
@@ -24,8 +21,18 @@ const Login = () => {
               alt="Workflow"
             />
           </div>
-          <form onSubmit={handleSubmit(handleSignIn)}>
+          <form onSubmit={handleSubmit(handleCreateUser)}>
             <input type="hidden" name="remember" defaultValue="true" />
+            <div>
+              <input
+                {...register('name')}
+                id="inputName"
+                name="name"
+                type="text"
+                required
+                placeholder="Nome"
+              />
+            </div>
             <div>
               <input
                 {...register('email')}
@@ -34,6 +41,16 @@ const Login = () => {
                 type="email"
                 required
                 placeholder="Endereço de e-mail"
+              />
+            </div>
+            <div>
+              <input
+                {...register('phone')}
+                id="inputPhone"
+                name="phone"
+                type="text"
+                required
+                placeholder="Telefone"
               />
             </div>
             <div>
@@ -48,17 +65,7 @@ const Login = () => {
             </div>
 
             <div>
-              <button type="submit">
-                <span>
-                  <HiLockClosed />
-                </span>
-                Entrar
-              </button>
-            </div>
-            <div>
-              <button onClick={() => Router.push('/create-user')}>
-                Criar nova conta
-              </button>
+              <button type="submit">Cadastrar</button>
             </div>
           </form>
         </div>
@@ -67,4 +74,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default CreateUser
