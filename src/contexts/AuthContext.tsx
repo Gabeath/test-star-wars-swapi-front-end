@@ -1,8 +1,10 @@
+import { message } from 'react-message-popup'
 import React, { createContext, useEffect, useState } from 'react'
 import Router from 'next/router'
 import { setCookie, parseCookies } from 'nookies'
 
 import { api } from '../services/api'
+import { ErrorMessages } from '../utils/error-messages'
 import { SignInRequestData, singInRequest } from '../services/auth'
 
 type AuthContextType = {
@@ -24,21 +26,27 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function signIn({ email, password }: SignInRequestData) {
-    const { token } = await singInRequest({
-      email,
-      password
-    })
+    try {
+      const { token } = await singInRequest({
+        email,
+        password
+      })
 
-    setCookie(undefined, 'sw_token', token, {
-      maxAge: 60 * 60 * 5 // 5 hours
-    })
+      setCookie(undefined, 'sw_token', token, {
+        maxAge: 60 * 60 * 5 // 5 hours
+      })
 
-    // eslint-disable-next-line dot-notation
-    api.defaults.headers['Authorization'] = `Bearer ${token}`
+      // eslint-disable-next-line dot-notation
+      api.defaults.headers['Authorization'] = `Bearer ${token}`
 
-    setIsAuthenticated(true)
+      setIsAuthenticated(true)
 
-    Router.push('/people')
+      Router.push('/people')
+    } catch (err) {
+      message.error(
+        ErrorMessages[err?.response?.data?.error] || 'Erro genérico'
+      )
+    }
   }
 
   return (
