@@ -1,5 +1,8 @@
+import { message } from 'react-message-popup'
 import Router from 'next/router'
 import { setCookie } from 'nookies'
+
+import { ErrorMessages } from '../utils/error-messages'
 
 import { api } from './api'
 
@@ -17,14 +20,18 @@ async function createUserRequest(userToCreate: User) {
 }
 
 export async function createUser(userToCreate: User) {
-  const { token } = await createUserRequest(userToCreate)
+  try {
+    const { token } = await createUserRequest(userToCreate)
 
-  setCookie(undefined, 'sw_token', token, {
-    maxAge: 60 * 60 * 5 // 5 hours
-  })
+    setCookie(undefined, 'sw_token', token, {
+      maxAge: 60 * 60 * 5 // 5 hours
+    })
 
-  // eslint-disable-next-line dot-notation
-  api.defaults.headers['Authorization'] = `Bearer ${token}`
+    // eslint-disable-next-line dot-notation
+    api.defaults.headers['Authorization'] = `Bearer ${token}`
 
-  Router.push('/people')
+    Router.push('/people')
+  } catch (err) {
+    message.error(ErrorMessages[err?.response?.data?.error] || 'Erro genérico')
+  }
 }
