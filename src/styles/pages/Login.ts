@@ -4,7 +4,7 @@ export const LoginContainer = styled.body`
   background-image: url('https://hdwallsource.com/img/2014/2/apple-galaxy-wallpaper-23337-23988-hd-wallpapers.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
   padding: 10px;
 
   img {
@@ -26,9 +26,5 @@ export const LoginContainer = styled.body`
     margin: 10px auto 30px;
     max-width: 38%;
     padding: 80px 70px 80px 71px;
-  }
-
-  .login-form {
-    text-align: center;
   }
 `

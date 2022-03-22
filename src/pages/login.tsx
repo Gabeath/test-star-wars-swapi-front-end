@@ -51,7 +51,7 @@ const Login = () => {
                 <span>
                   <HiLockClosed />
                 </span>
-                Sign in
+                Entrar
               </button>
             </div>
           </form>

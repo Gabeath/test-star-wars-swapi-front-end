@@ -20,4 +20,12 @@ export const Container = styled.div`
     font-size: 24px;
     line-height: 32px;
   }
+
+  button {
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    height: 100%;
+    line-height: 100%;
+  }
 `

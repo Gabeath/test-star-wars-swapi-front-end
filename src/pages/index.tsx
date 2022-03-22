@@ -1,5 +1,6 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
+import Router from 'next/router'
 
 import DarthVaderIcon from '../assets/darth-vader.svg'
 import { Container } from '../styles/pages/Home'
@@ -17,6 +18,9 @@ const Home = () => {
         Você está controlando seu medo... agora libere a sua raiva. Só o seu
         ódio poderá destruir-me
       </p>
+      <div>
+        <button onClick={() => Router.push('/login')}>Continuar</button>
+      </div>
     </Container>
   )
 }

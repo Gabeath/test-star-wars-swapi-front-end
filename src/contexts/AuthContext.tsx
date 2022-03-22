@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
 
     setIsAuthenticated(true)
 
-    Router.push('/')
+    Router.push('/people')
   }
 
   return (
