@@ -55,12 +55,12 @@ const Login = () => {
                 Entrar
               </button>
             </div>
-            <div>
-              <button onClick={() => Router.push('/create-user')}>
-                Criar nova conta
-              </button>
-            </div>
           </form>
+          <div>
+            <button onClick={() => Router.push('/create-user')}>
+              Criar nova conta
+            </button>
+          </div>
         </div>
       </div>
     </FormContainer>
